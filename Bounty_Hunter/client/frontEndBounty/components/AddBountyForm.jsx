@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+    
+
 
 export default function AddBountyForm(props) {
 
@@ -11,15 +13,8 @@ export default function AddBountyForm(props) {
       imgUrl: props.imgUrl || ""
     };
 
-    // const [inputs, setInputs] = useState(initInputs)
-    const [inputs, setInputs] = useState({
-    type: '',
-    First_Name: '',
-    Last_Name: '',
-    isAlive: false,
-    BountyAward: '',
-    imgUrl: '',
-  });
+    const [inputs, setInputs] = useState(initInputs)
+  
     
   function handleChange(e) {
     const { name, value, checked } = e.target;
@@ -30,19 +25,7 @@ export default function AddBountyForm(props) {
   }
    
 
-    // function handleChange(e) {
-    //   const { name, value, checked } = e.target;
-
-    //   if (name === "isAlive") {
-    //     setInputs((prevInputs) => ({
-    //       ...prevInputs,
-    //       [name]: checked,
-    //     }));
-    //   } else {
-    //     setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
-    //   }
-    // }
-    
+       
     function handleSubmit(e){
       e.preventDefault()
       console.log(e, 'for Edit Submit Btn');
@@ -51,73 +34,63 @@ export default function AddBountyForm(props) {
       props.setEditToggle((prevToggle) => !prevToggle);
     }
 
-    // function handleSubmit(e) {
-    //   e.preventDefault();
-    //   props.submit(inputs);
-    //   setInputs({
-    //     type: "",
-    //     First_Name: "",
-    //     Last_Name: "",
-    //     isAlive: false,
-    //     BountyAward: "",
-    //     imgUrl: "",
-    //   });
-    // }
+
+    
 
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="type"
-        value={inputs.type}
-        onChange={handleChange}
-        placeholder="Sith / Jedi"
-      />
+    
 
-      <input
-        type="text"
-        name="First_Name"
-        value={inputs.First_Name}
-        onChange={handleChange}
-        placeholder="First_Name"
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="type"
+          value={inputs.type}
+          onChange={handleChange}
+          placeholder="Sith / Jedi"
+        />
+        <input
+          type="text"
+          name="First_Name"
+          value={inputs.First_Name}
+          onChange={handleChange}
+          placeholder="First_Name"
+        />
+        <input
+          type="text"
+          name="Last_Name"
+          value={inputs.Last_Name}
+          onChange={handleChange}
+          placeholder="Last_Name"
+        />
+        <input
+          type="text"
+          name="BountyAward"
+          value={inputs.BountyAward}
+          onChange={handleChange}
+          placeholder="BountyAward"
+        />
+        <input
+          className="isAlive"
+          type="checkbox"
+          name="isAlive"
+          checked={inputs.isAlive}
+          onChange={handleChange}
+        />
+        Alive
+        <input
+          type="text"
+          name="imgUrl"
+          value={inputs.imgUrl}
+          onChange={handleChange}
+          placeholder="imgUrl"
+        />
 
-      <input
-        type="text"
-        name="Last_Name"
-        value={inputs.Last_Name}
-        onChange={handleChange}
-        placeholder="Last_Name"
-      />
-
-      <input className='isAlive'
-        type="checkbox"
-        name="isAlive"
-        checked={inputs.isAlive}
-        onChange={handleChange} //***/ FIND ANOTHER ONCHANGE ***
-        placeholder="isAlive = Y / N"
-      />
-
-      <input
-        type="text"
-        name="BountyAward"
-        value={inputs.BountyAward}
-        onChange={handleChange}
-        placeholder="BountyAward"
-      />
-
-      <input
-        type="text"
-        name="imgUrl"
-        value={inputs.imgUrl}
-        onChange={handleChange}
-        placeholder="imgUrl"
-      />
-
-      <button> {props.btnText} </button>
-    </form>
+        <input type="file" />
+        <button> {props.btnText} </button>
+      </form>
+    
   );
   
 }

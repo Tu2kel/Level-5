@@ -4,6 +4,7 @@ import './styles.css'
 
 
 
+
 export default function Bounty(props) {
 
     const {
@@ -22,13 +23,14 @@ export default function Bounty(props) {
 
   return (
     <div className="bounty">
+      
       {!editToggle ? (
         <>
           <h2>Type: {type} </h2>
           <h3 className="underline">Name</h3>
           <h2>First: {First_Name} </h2>
           <h2>Last: {Last_Name} </h2>
-          <h3> {isAlive} </h3>
+          <h3>Staus: {isAlive ? "Alive" : "Dead"} </h3>
           <h3>BountyAward: {BountyAward + `${" Credits"}`} </h3>
           <p>
             {" "}
@@ -57,8 +59,8 @@ export default function Bounty(props) {
       ) : (
         <>
           <AddBountyForm
-            setEditToggle = {setEditToggle}
-            editToggle = {editToggle}
+            setEditToggle={setEditToggle}
+            editToggle={editToggle}
             type={type}
             First_Name={First_Name}
             Last_Name={Last_Name}
@@ -68,7 +70,6 @@ export default function Bounty(props) {
             _id={_id}
             btnText="Submit Edit" // just Text
             submit={editBounty}
-            // submit={(updates) => editBounty(updates, _id)}
           />
           <button onClick={() => setEditToggle((prevToggle) => !prevToggle)}>
             Cancel

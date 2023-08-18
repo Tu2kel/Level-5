@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Bounty from '../components/Bounty'
 import AddBountyForm from '../components/AddBountyForm'
+import AudioPlayer from "../components/AudioPlayer";
+
+
 
 export default function App() {
 
@@ -11,7 +14,8 @@ export default function App() {
     axios
       .get("/bounty")
       .then(res => setBounty(res.data))
-      .catch(err => console.log(err.res.data.errMsg))
+      .catch(err => console.log(err.res.data.errMsg
+        ))
       // .catch(err => console.log(err))
   }
 
@@ -64,9 +68,9 @@ export default function App() {
 
   return (
     <div>
+      <AudioPlayer  />
       <div className="bounty_container">
         <AddBountyForm submit={addBounty} btnText="Add Bounty" />
-
         {bounties.map((bounty) => (
           <Bounty
             {...bounty}
@@ -76,8 +80,9 @@ export default function App() {
           />
         ))}
       </div>
+      {/* <AudioPlayer /> */}
     </div>
   );
-
+ 
   
 }
