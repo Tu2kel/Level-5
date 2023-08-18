@@ -9,10 +9,10 @@ export default function Bounty(props) {
 
     const {
       type,
-      First_Name,
-      Last_Name,
+      first_name,
+      last_name,
       isAlive,
-      BountyAward ,
+      bountyAward ,
       imgUrl,
       _id,
       deleteBounty,
@@ -23,15 +23,14 @@ export default function Bounty(props) {
 
   return (
     <div className="bounty">
-      
       {!editToggle ? (
         <>
           <h2>Type: {type} </h2>
           <h3 className="underline">Name</h3>
-          <h2>First: {First_Name} </h2>
-          <h2>Last: {Last_Name} </h2>
+          <h2>First: {first_name} </h2>
+          <h2>Last: {last_name} </h2>
           <h3>Staus: {isAlive ? "Alive" : "Dead"} </h3>
-          <h3>BountyAward: {BountyAward + `${" Credits"}`} </h3>
+          <h3>BountyAward: {bountyAward + `${" Credits"}`} </h3>
           <p>
             {" "}
             <img
@@ -62,10 +61,10 @@ export default function Bounty(props) {
             setEditToggle={setEditToggle}
             editToggle={editToggle}
             type={type}
-            First_Name={First_Name}
-            Last_Name={Last_Name}
+            first_name={first_name}
+            last_name={last_name}
             isAlive={isAlive}
-            BountyAward={BountyAward}
+            bountyAward={bountyAward}
             imgUrl={imgUrl}
             _id={_id}
             btnText="Submit Edit" // just Text

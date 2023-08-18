@@ -6,10 +6,10 @@ export default function AddBountyForm(props) {
 
     const initInputs = {
       type: props.type || "",
-      First_Name: props.First_Name || "",
-      Last_Name: props.Last_Name || "",
+      first_name: props.first_name || "",
+      last_name: props.last_name || "",
       isAlive: props.isAlive !== undefined ? props.isAlive : false,
-      BountyAward: props.BountyAward || "",
+      bountyAward: props.bountyAward || "",
       imgUrl: props.imgUrl || ""
     };
 
@@ -40,57 +40,53 @@ export default function AddBountyForm(props) {
 
 
   return (
-    
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="type"
-          value={inputs.type}
-          onChange={handleChange}
-          placeholder="Sith / Jedi"
-        />
-        <input
-          type="text"
-          name="First_Name"
-          value={inputs.First_Name}
-          onChange={handleChange}
-          placeholder="First_Name"
-        />
-        <input
-          type="text"
-          name="Last_Name"
-          value={inputs.Last_Name}
-          onChange={handleChange}
-          placeholder="Last_Name"
-        />
-        <input
-          type="text"
-          name="BountyAward"
-          value={inputs.BountyAward}
-          onChange={handleChange}
-          placeholder="BountyAward"
-        />
-        <input
-          className="isAlive"
-          type="checkbox"
-          name="isAlive"
-          checked={inputs.isAlive}
-          onChange={handleChange}
-        />
-        Alive
-        <input
-          type="text"
-          name="imgUrl"
-          value={inputs.imgUrl}
-          onChange={handleChange}
-          placeholder="imgUrl"
-        />
-
-        <input type="file" />
-        <button> {props.btnText} </button>
-      </form>
-    
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="type"
+        value={inputs.type}
+        onChange={handleChange}
+        placeholder="Sith / Jedi"
+      />
+      <input
+        type="text"
+        name="first_name"
+        value={inputs.first_name}
+        onChange={handleChange}
+        placeholder="First Name"
+      />
+      <input
+        type="text"
+        name="last_name"
+        value={inputs.last_name}
+        onChange={handleChange}
+        placeholder="Last Name"
+      />
+      <input
+        type="text"
+        name="bountyAward"
+        value={inputs.bountyAward}
+        onChange={handleChange}
+        placeholder="BountyAward"
+      />
+      <input
+        className="isAlive"
+        type="checkbox"
+        name="isAlive"
+        checked={inputs.isAlive}
+        onChange={handleChange}
+      />
+      Alive
+      <input
+        type="text"
+        name="imgUrl"
+        value={inputs.imgUrl}
+        onChange={handleChange}
+        placeholder="imgUrl"
+      />
+      <input type="file" />
+      <button> {props.btnText} </button>
+    </form>
   );
   
 }
