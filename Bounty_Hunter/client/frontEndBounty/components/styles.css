@@ -18,7 +18,15 @@ h1, h2, h3 {
 }
 
 
+.filter_form{
+    background-color: aliceblue;
+    color: rgb(255, 17, 0);
+    width: 200px;
+}
 
+option{
+    color: red;
+}
 
 p{
     margin: 5px;

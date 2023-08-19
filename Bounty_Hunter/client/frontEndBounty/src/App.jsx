@@ -59,6 +59,21 @@ export default function App() {
         )
         .catch((err) => console.log(err));
   }
+/*-------------------------/*NOTE* FIX FILTER QUERIES BY TYPE SECTION WHEN AVAILABLE */
+
+  function handleFilter(e){   
+    // console.log(e.target.value);
+    if(e.target.value === 'reset') {
+      getBounty()
+
+    } else{
+      
+      axios.get(`/bounty/search/status?status=${e.target.value}`)
+        .then((res) => setBounty(res.data))
+        .catch((err) => console.log("Error: ", err));
+    }
+
+  }
 
   useEffect(() => {
     getBounty();
@@ -68,9 +83,18 @@ export default function App() {
 
   return (
     <div>
-      <AudioPlayer  />
+      <AudioPlayer />
       <div className="bounty_container">
         <AddBountyForm submit={addBounty} btnText="Add Bounty" />
+
+    {/*------------------------- NOTE FIX the FILTER QUERIES BY TYPE SECTION WHEN AVAILABLE */}
+        <h4>Filter by Status  </h4>  
+        <select onChange={handleFilter} className="filter_form">
+          <option value="reset" >Choose: Living / Deceased </option>
+          <option value="dead">Dead</option>
+          <option value="alive">Alive</option>
+        </select>
+
         {bounties.map((bounty) => (
           <Bounty
             {...bounty}
@@ -80,7 +104,6 @@ export default function App() {
           />
         ))}
       </div>
-      {/* <AudioPlayer /> */}
     </div>
   );
  

@@ -29,7 +29,7 @@ export default function Bounty(props) {
           <h3 className="underline">Name</h3>
           <h2>First: {first_name} </h2>
           <h2>Last: {last_name} </h2>
-          <h3>Staus: {isAlive ? "Alive" : "Dead"} </h3>
+          <h3>Status: {isAlive ? "Alive" : "Dead"} </h3>
           <h3>BountyAward: {bountyAward + `${" Credits"}`} </h3>
           <p>
             {" "}
