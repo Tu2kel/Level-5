@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #6b0404;
+  background-color: #080000;
+  /* background-color: #000000; */
+}
+
+audio {
+  /* display: none; */
+  color: null;
+}
+
+.Navbar {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6b0404;
+}
+
+.NavHeader {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 10px 0;
+}
+
+.filter_form {
+  background-color: aliceblue;
+  color: rgb(255, 17, 0);
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+form {
+  border: 1px solid #333;
+  padding: 10px;
+  margin: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #6b0404;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.wanted_container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 32px;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 32px;
+}
