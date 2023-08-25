@@ -7,13 +7,13 @@ export default function Fugitive(props) {
     type, //Type of Crime ie Cyber, White Collar
     first_name,
     last_name,
-    status,
     reward,
     imgUrl,
     _id,
     deleteFugitive,
     editFugitive,
   } = props;
+  console.log("Fugitve.jsx line 17 Props:", props);
 
   const [editToggle, setEditToggle] = useState(false);
 
@@ -22,19 +22,18 @@ export default function Fugitive(props) {
       {!editToggle ? (
         <>
           <h2>Type: {type} </h2>
-          {/* <h3 className="underline">Name</h3> */}
           <h2>First: {first_name} </h2>
           <h2>Last: {last_name} </h2>
-          <h3>Status: {status ? "Alive" : "Dead"} </h3>
-          <h3>Reward: {reward + `${" Credits"}`} </h3>
+          {/* <h3>Status: {status ? "Alive" : "Dead"} </h3> */}
+          <h3>Reward: {`$ ${reward}` } </h3>
           <p>
-            {" "}
+            
             <img
               src={imgUrl}
-              alt={`Wanted: ${type}`}
+              alt={`Wanted: ${imgUrl}`}
               height={250}
               width={250}
-            />{" "}
+            />
           </p>
 
           <button
@@ -59,7 +58,6 @@ export default function Fugitive(props) {
             type={type}
             first_name={first_name}
             last_name={last_name}
-            status={status}
             reward={reward}
             imgUrl={imgUrl}
             _id={_id}

@@ -1,30 +1,31 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function ReportForm() {
-
   const [reportData, setReportData] = useState({
     sightingLocation: "",
     additionalInfo: "",
   });
+  console.log(" ReportForm line 9 reportData:", reportData);
 
   function handleInputChange(e) {
     const { name, value } = e.target;
+    console.log("Input Change Report Form line 13", name, value);
     setReportData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   }
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log(e, 'Submit Form info');
+    console.log(e, "ReportForm line 22 Submitting report data:", reportData);//Debug line
 
-    axios
+    axios // Send the reportData to the server using axios.post
       .post("/reports", reportData) // Replace '/reports' with your actual endpoint
       .then((res) => {
         console.log("Report submitted successfully:", res.data);
-        // Reset the form after successful submission
+        // handles successful submission
         setReportData({
           sightingLocation: "",
           additionalInfo: "",
@@ -33,7 +34,6 @@ export default function ReportForm() {
       .catch((err) => {
         console.log("Error submitting report:", err.response.data.errMsg);
       });
-    
   }
 
   return (

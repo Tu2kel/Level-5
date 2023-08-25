@@ -67,18 +67,39 @@ button {
   cursor: pointer;
 }
 
+.delete_btn{
+    background-color: firebrick;
+    color: whitesmoke;
+    width: 100px;
+    margin: 10px 0 ;
+
+}
+
+.edit_btn{
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    width: 100px;
+}
+
 .wanted_container {
   display: flex;
   flex-direction: column;
   margin: 0 32px;
-  border: 1px solid #333;
+  /* border: 1px solid #333;
   padding: 10px;
   border-radius: 8px;
   margin: 10px 0;
+  border: 6px solid red; */
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  height: 300vh;
   margin: 0 32px;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  border: 2px solid red;
 }

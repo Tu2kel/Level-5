@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 export default function AddFugitiveForm(props) {
+  
   const initInputs = {
     type: props.type || "",
     first_name: props.first_name || "",
     last_name: props.last_name || "",
-    status: props.status !== undefined ? props.status: false,
+    // status: props.status !== undefined ? props.status : false,
     reward: props.reward || "",
     imgUrl: props.imgUrl || "",
   };
@@ -13,10 +14,10 @@ export default function AddFugitiveForm(props) {
   const [inputs, setInputs] = useState(initInputs);
 
   function handleChange(e) {
-    const { name, value, checked } = e.target;
+    const { name, value } = e.target;
     setInputs((prevInputs) => ({
       ...prevInputs,
-      [name]: name === "status" ? checked : value,
+      [name]: value,
     }));
   }
 
@@ -58,15 +59,7 @@ export default function AddFugitiveForm(props) {
         onChange={handleChange}
         placeholder="Reward"
       />
-      <input
-        className="status"
-        type="checkbox"
-        name="status"
-        checked={inputs.status}
-        onChange={handleChange}
-        label={"Status"}
-      />
-      Alive
+
       <input
         type="text"
         name="imgUrl"
@@ -74,7 +67,7 @@ export default function AddFugitiveForm(props) {
         onChange={handleChange}
         placeholder="Https://ImageHere"
       />
-      <input type="file" />
+      {/* <input type="file" /> */}
       <button> {props.btnText} </button>
     </form>
   );
