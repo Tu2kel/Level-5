@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Fugitive from "./components/Fugitive";
 import AddFugitiveForm from "./components/AddFugitiveForm";
+import Fugitive from "./components/Fugitive";
 import Navbar from "./components/Navbar";
-import ReportForm from "./components/ReportForm";
-// import { FugitiveProvider} from "./components/FugitiveContext";
 import { useFugitiveContext } from "./components/FugitiveContext";
+// import ReportForm from "./components/ReportForm";
 
 // import AudioPlayer from "../components/AudioPlayer";
 
 export default function App() {
-  const [fugitives, setFugitives] = useFugitiveContext();
+  const { fugitives, setFugitives } = useFugitiveContext();
 
-   useEffect(() => {
-     getFugitive();
-   }, []);
+  
 
-  const [reportData, setReportData] = useState({
-    sightingLocation: "",
-    additionalInfo: "",
-  });
+  // const [reportData, setReportData] = useState({
+  //   sightingLocation: "",
+  //   additionalInfo: "",
+  // });
 
- 
   function getFugitive() {
     axios
       .get("/fugitives")
       .then((res) => {
-        console.log("App line 20 Fugitives data:", res.data);
+        console.log("App line 27 Fugitives data:", res.data);
         setFugitives(res.data);
       })
       .catch((err) => console.log(err.res.data.errMsg));
@@ -74,39 +70,42 @@ export default function App() {
 
   const [editToggle, setEditToggle] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log('Submitting report data:', reportData);
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log("Submitting report data:", reportData);
 
-    // Assuming you want to use axios to send the reportData to the server
-    axios.post('/reports', reportData)
-      .then((response) => {
-        console.log('Report submitted successfully:', response.data);
-        // Reset the reportData state after successful submission
-        setReportData({
-          sightingLocation: '',
-          additionalInfo: '',
-        });
-      })
-      .catch((error) => {
-        console.error('Error submitting report:', error);
-      });
-  }
-
-
-
+  //   // Assuming you want to use axios to send the reportData to the server
+  //   axios
+  //     .post("/reports", reportData)
+  //     .then((response) => {
+  //       console.log("Report submitted successfully:", response.data);
+  //       // Reset the reportData state after successful submission
+  //       setReportData({
+  //         sightingLocation: "",
+  //         additionalInfo: "",
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error submitting report:", error);
+  //     });
+  // }
 
   function handleFilter(e) {
+    const selectedCrimeType = e.target.value;
     // console.log(e.target.value);
-    if (e.target.value === "reset") {
+    if (selectedCrimeType === "reset") {
       getFugitive();
     } else {
       axios
-        .get(`/fugitives/search/type?type=${e.target.value}`)
+        .get(`/fugitives/search/type?type=${selectedCrimeType}`)
         .then((res) => setFugitives(res.data))
         .catch((err) => console.log("Error: ", err));
     }
   }
+
+  useEffect(() => {
+    getFugitive();
+  }, []);
 
   return (
     <div>
@@ -115,16 +114,16 @@ export default function App() {
       <div className="container">
         <AddFugitiveForm
           setEditToggle={setEditToggle}
-          editToggle={editToggle} 
+          editToggle={editToggle}
           submit={addFugitive}
           btnText="Add Fugitive"
         />
 
-        <ReportForm
+        {/* <ReportForm
           reportData={reportData}
           setReportData={setReportData}
           handleSubmit={handleSubmit}
-        />
+        /> */}
 
         {/*------------------------- NOTE FIX the FILTER QUERIES BY TYPE SECTION WHEN AVAILABLE */}
 
@@ -135,11 +134,11 @@ export default function App() {
           <option value="white_collar">White Collar</option>
           <option value="violent">Violent</option>
         </select>
-        <div className="fugitive_list">
-          {fugitives.map((fugitive) => (
+        <div className="fugitives_list">
+          {fugitives.map((fugitives) => (
             <Fugitive
-              key={fugitive._id}
-              {...fugitive}
+              {...fugitives}
+              key={fugitives._id}
               deleteFugitive={deleteFugitive}
               editFugitive={editFugitive}
             />

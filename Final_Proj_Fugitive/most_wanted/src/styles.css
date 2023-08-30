@@ -22,9 +22,16 @@ audio {
   background-color: #6b0404;
 }
 
+em{
+  color: #0a0a0a;
+  background-color: #6b0404;
+  
+}
+
 .NavHeader {
-  color: #ffffff;
-  font-size: 24px;
+  color: #ded1d1;
+  font-size: 34px;
+  background-color: #6b0404;
 }
 
 h1,
@@ -33,14 +40,21 @@ h3 {
   margin: 10px 0;
 }
 
+h4{
+  padding-left: 35px;
+  padding-top: 35px;
+}
+
 .filter_form {
-  background-color: aliceblue;
+  background-color: rgb(12, 12, 12);
   color: rgb(255, 17, 0);
   width: 200px;
   padding: 5px;
   border: 1px solid #333;
   border-radius: 8px;
-  margin: 5px;
+  margin-bottom: 25px ;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 form {
@@ -79,17 +93,15 @@ button {
     background-color: cornflowerblue;
     color: whitesmoke;
     width: 100px;
+    margin-bottom: 55px;
+    
 }
 
-.wanted_container {
+.fugitive_details {
   display: flex;
   flex-direction: column;
   margin: 0 32px;
-  /* border: 1px solid #333;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 10px 0;
-  border: 6px solid red; */
+  
 }
 
 .container {
@@ -102,4 +114,10 @@ button {
   border-radius: 8px;
   margin: 10px 0;
   border: 2px solid red;
+}
+
+img{
+  border-radius: 30% 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

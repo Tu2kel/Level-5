@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 
+//𝗮𝗱𝗱𝘀 𝗮 𝗻𝗲𝘄 𝗳𝘂𝗴𝗶𝘁𝗶𝘃𝗲
+
 export default function AddFugitiveForm(props) {
-  
+  // type: props.type || "" ---> leaves the field in tack with prev info
+  // first_name: "" ---> causes the form to lose the previous info  
   const initInputs = {
     type: props.type || "",
     first_name: props.first_name || "",
     last_name: props.last_name || "",
-    // status: props.status !== undefined ? props.status : false,
     reward: props.reward || "",
     imgUrl: props.imgUrl || "",
+    last_known_location: /*props.last_known_location || */"",
+    additional_info: /*props.additional_info ||*/ "",
   };
 
   const [inputs, setInputs] = useState(initInputs);
@@ -17,7 +21,7 @@ export default function AddFugitiveForm(props) {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({
       ...prevInputs,
-      [name]: value,
+      [name]: value
     }));
   }
 
@@ -30,7 +34,7 @@ export default function AddFugitiveForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add_Info_Field" >
       <input
         type="text"
         name="type"
@@ -65,7 +69,23 @@ export default function AddFugitiveForm(props) {
         name="imgUrl"
         value={inputs.imgUrl}
         onChange={handleChange}
-        placeholder="Https://ImageHere"
+        placeholder="https://ImageHere"
+      />
+
+      <input
+        type="text"
+        name="last_known_location"
+        value={inputs.last_known_location}
+        onChange={handleChange}
+        placeholder="Report of Sighting"
+      />
+
+      <input
+        type="text"
+        name="additional_info"
+        value={inputs.additional_info}
+        onChange={handleChange}
+        placeholder="Add a description"
       />
       {/* <input type="file" /> */}
       <button> {props.btnText} </button>
