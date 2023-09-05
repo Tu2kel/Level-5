@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { FugitiveProvider } from "./components/FugitiveContext";
-// import { useFugitiveContext } from "./components/FugitiveContext";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(

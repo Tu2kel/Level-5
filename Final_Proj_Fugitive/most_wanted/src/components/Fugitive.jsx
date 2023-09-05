@@ -5,7 +5,7 @@ import "../styles.css";
 //𝘁𝗼 𝗱𝗶𝘀𝗽𝗹𝗮𝘆 𝗱𝗲𝘁𝗮𝗶𝗹𝘀 𝗼𝗳 𝗮 𝘀𝗶𝗻𝗴𝗹𝗲 𝗳𝘂𝗴𝗶𝘁𝗶𝘃𝗲
 
 export default function Fugitive(props) {
-  const {
+  const { // destructured properties from inputs
     type, //Type of Crime ie Cyber, White Collar
     first_name,
     last_name,
@@ -18,13 +18,13 @@ export default function Fugitive(props) {
     editFugitive,
   } = props;
 
-  const [editToggle, setEditToggle] = useState(false);
+  const [editToggle, setEditToggle] = useState(false); // initial value set to false
  
 
   return (
     <div className="fugitive_details">
-      {!editToggle ? (
-        <>
+      {!editToggle ? ( //conditional rendering 
+        <> {/*if edit is fals display 1st set up to colon */}
           <h2>Type: {type} </h2>
           <h2>First: {first_name} </h2>
           <h2>Last: {last_name} </h2>
@@ -51,7 +51,7 @@ export default function Fugitive(props) {
           </button>
         </>
       ) : (
-        <>
+        <> {/*if editToggle is true display the editted info area*/}
           <AddFugitiveForm
             setEditToggle={setEditToggle}
             editToggle={editToggle}
